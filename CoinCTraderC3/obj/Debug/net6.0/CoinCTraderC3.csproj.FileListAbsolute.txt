@@ -1,0 +1,12 @@
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\bin\Debug\net6.0\CoinCTraderC3.deps.json
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\bin\Debug\net6.0\CoinCTraderC3.dll
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\bin\Debug\net6.0\CoinCTraderC3.pdb
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.csproj.AssemblyReference.cache
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.AssemblyInfoInputs.cache
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.AssemblyInfo.cs
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.csproj.CoreCompileInputs.cache
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.dll
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\refint\CoinCTraderC3.dll
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\CoinCTraderC3.pdb
+C:\Users\solut\Documents\cAlgo\Sources\Robots\CoinCTraderC3\CoinCTraderC3\obj\Debug\net6.0\ref\CoinCTraderC3.dll
