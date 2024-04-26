@@ -1,2 +1,36 @@
-/.vs
-/.vscode
+.vs
+.vscode
+
+## Compilation files
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userprefs
+debug*/
+*.pdb
+*.dll
+*.exe
+
+## Package files
+# it's best to unzip these files and commit the raw source code
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+## Log files
+*.log
+
+## Temporary files
+*.bak
+*.cache
+*.swp
+*.nib
+local.properties
+*.DS_Store
