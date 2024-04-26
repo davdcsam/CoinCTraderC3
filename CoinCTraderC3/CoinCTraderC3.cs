@@ -35,7 +35,10 @@ namespace cAlgo.Robots
 
         protected PlaceOrders PlaceOrder { get; set; }
 
-        // -- Section Time Parameters and Declaration -- // 
+        // -- Section Time Parameters and Declaration -- //
+
+        [Parameter("UserTimeOffset", Group = "Section Time")]
+        public Switcher SwitcherUserTimeOffset { get; set; }
 
         [Parameter("Start Hour", Group = "Section Time", DefaultValue = 8, MaxValue = 23, MinValue = 0)]
         public int StartHour { get; set; }
@@ -75,7 +78,12 @@ namespace cAlgo.Robots
             PlaceOrder = new PlaceOrders(this, LotSize, StopLoss, TakeProfit, LabelIdentifier);
 
             RangeTimeOperative = new RangeTime(this, StartHour, StartMin, StartSec, EndHour, EndMin, EndSec);
-            RangeTimeOperative.UpdateDatetimeInterval()
+            if (SwitcherUserTimeOffset == Switcher.Activated)
+            {
+                Application.UserTimeOffsetChanged += RangeTimeOperative.Application_UserTimeOffsetChanged;
+                RangeTimeOperative.UpdateUserTimeOffset();
+            }
+            RangeTimeOperative.UpdateDatetimeInterval();
 
             if (SwitcherRemoval == Switcher.Activated) { Removal = new Removal(this, LabelIdentifier); }
         }
@@ -113,7 +121,7 @@ namespace cAlgo.Robots
             if (SwitcherRemoval == Switcher.Deactivated)
             { return; }
 
-            if (!RangeTimeOperative.VerifyInsideInterval()) { Print("Hello"); Removal.ByLabelIdentifier(null, null); }
+            if (!RangeTimeOperative.VerifyInsideInterval()) { Removal.ByLabelIdentifier(null, null); }
         }
         protected void Deploy()
         {
