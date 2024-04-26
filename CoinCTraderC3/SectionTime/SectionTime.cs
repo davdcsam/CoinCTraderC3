@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SectionTime
 {
@@ -13,6 +14,7 @@ namespace SectionTime
         public DateTime StartDateTime { get; private set; }
         public DateTime EndDateTime { get; private set; }
         public DateTime CurrentDatetime { get; private set; }
+        public TimeSpan CurrentTimeSpan { get; private set; }
         public int StartHour { get; private set; }
         public int StartMinute { get; private set; }
         public int StartSecond { get; private set; }
@@ -29,6 +31,22 @@ namespace SectionTime
             EndHour = endHour;
             EndMinute = endMinute;
             EndSecond = endSecond;
+            CurrentTimeSpan = TimeSpan.Zero;
+        }
+
+        public void Application_UserTimeOffsetChanged(UserTimeOffsetChangedEventArgs args)
+        {
+            UpdateUserTimeOffset();
+        }
+
+        public void UpdateUserTimeOffset()
+        {
+            CurrentTimeSpan = _cbot.Application.UserTimeOffset;
+        }
+
+        public void UpdateUserTimeOffset(TimeSpan timeSpan)
+        {
+            CurrentTimeSpan = timeSpan;
         }
 
         public bool VerifyFormattingTime()
@@ -60,7 +78,9 @@ namespace SectionTime
         }
         public bool UpdateDatetimeInterval()
         {
-            CurrentDatetime = _cbot.Server.Time;
+            CurrentDatetime = _cbot.Server.TimeInUtc + CurrentTimeSpan;
+
+            _cbot.Print(CurrentDatetime.ToString());
             if (!VerifyFormattingTime() || CurrentDatetime == DateTime.MinValue)
             {
                 _cbot.Stop();
