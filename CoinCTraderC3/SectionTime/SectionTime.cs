@@ -80,7 +80,6 @@ namespace SectionTime
         {
             CurrentDatetime = _cbot.Server.TimeInUtc + CurrentTimeSpan;
 
-            _cbot.Print(CurrentDatetime.ToString());
             if (!VerifyFormattingTime() || CurrentDatetime == DateTime.MinValue)
             {
                 _cbot.Stop();

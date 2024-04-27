@@ -140,8 +140,16 @@ namespace cAlgo.Robots
             RunRemoval();
 
             Deploy();
+
+            base.OnTick();
         }
 
-        protected override void OnStop() { Removal.ByLabelIdentifier(null, null); }
+        protected override void OnStop()
+        {
+            if (!IsBacktesting) return;
+            Removal.ByLabelIdentifier();
+
+            base.OnStop();
+        }
     }
 }
