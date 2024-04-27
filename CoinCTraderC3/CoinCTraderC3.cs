@@ -27,7 +27,7 @@ namespace cAlgo.Robots
         [Parameter("Take Profit", Group = "Data Trader", DefaultValue = 100, MinValue = 1.0)]
         public double TakeProfit { get; set; }
 
-        [Parameter("Stop Loss", Group = "Data Trader", DefaultValue = 50, MinValue = 1.0)]
+        [Parameter("Stop Loss", Group = "Data Trader", DefaultValue = 50, MinValue = 0)]
         public double StopLoss { get; set; }
 
         [Parameter("Label to Identify", Group = "Data Trader", DefaultValue = "studying at uca sv is a disrepute")]
@@ -62,7 +62,7 @@ namespace cAlgo.Robots
 
         // -- Removal Parameters and Declaration -- //
 
-        [Parameter("Switcher", Group = "Removal")]
+        [Parameter("Removal Out", Group = "Section Time")]
         public Switcher SwitcherRemoval { get; set; }
 
         protected Removal Removal { get; private set; }
