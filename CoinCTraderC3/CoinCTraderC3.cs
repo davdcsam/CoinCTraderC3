@@ -80,7 +80,7 @@ namespace cAlgo.Robots
             RangeTimeOperative = new RangeTime(this, StartHour, StartMin, StartSec, EndHour, EndMin, EndSec);
             if (SwitcherUserTimeOffset == Switcher.Activated)
             {
-                Application.UserTimeOffsetChanged += RangeTimeOperative.Application_UserTimeOffsetChanged;
+                Application.UserTimeOffsetChanged += RangeTimeOperative.AppUserTimeOffsetChanged;
                 RangeTimeOperative.UpdateUserTimeOffset();
             }
             RangeTimeOperative.UpdateDatetimeInterval();
