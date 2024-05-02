@@ -4,7 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutomatedTrading" Version="1.0.5" />
+    <PackageReference Include="AutomatedTrading" Version="1.0.*" />
     <PackageReference Include="cTrader.Automate" Version="1.*" />
   </ItemGroup>
 </Project>

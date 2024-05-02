@@ -37,8 +37,8 @@ namespace cAlgo.Robots
 
         // -- Section Time Parameters and Declaration -- //
 
-        [Parameter("UserTimeOffset", Group = "Section Time")]
-        public Switcher SwitcherUserTimeOffset { get; set; }
+        [Parameter("TimeZone UTC", Group = "Section Time", DefaultValue = UTCZones.CustomTimeZones.UTC)]
+        public UTCZones.CustomTimeZones CustomTimeZones { get; set; }
 
         [Parameter("Start Hour", Group = "Section Time", DefaultValue = 8, MaxValue = 23, MinValue = 0)]
         public int StartHour { get; set; }
@@ -78,14 +78,22 @@ namespace cAlgo.Robots
             PlaceOrder = new PlaceOrders(this, LotSize, StopLoss, TakeProfit, LabelIdentifier);
 
             RangeTimeOperative = new RangeTime(this, StartHour, StartMin, StartSec, EndHour, EndMin, EndSec);
-            if (SwitcherUserTimeOffset == Switcher.Activated)
+            if (CustomTimeZones == UTCZones.CustomTimeZones.AppTimeOffset)
             {
                 Application.UserTimeOffsetChanged += RangeTimeOperative.AppUserTimeOffsetChanged;
                 RangeTimeOperative.UpdateUserTimeOffset();
             }
+            else
+            {
+                RangeTimeOperative.UpdateUserTimeOffset(CustomTimeZones);
+            }
             RangeTimeOperative.UpdateDatetimeInterval();
 
-            if (SwitcherRemoval == Switcher.Activated) { Removal = new Removal(this, LabelIdentifier); }
+
+            if (SwitcherRemoval == Switcher.Activated)
+            {
+                Removal = new Removal(this, LabelIdentifier);
+            }
         }
 
         protected bool VerifyInputs()
